@@ -14,3 +14,9 @@
 
 3. Создайте файл конфигурации Prometheus prometheus.yml,
    в котором определите конфигурацию для сбора метрик из вашего микросервиса. Настройте интервал сбора и выберите метрики, которые вы хотите собирать.
+
+## Sample screenshots
+
+![compilation_time](screenshots/compilation_time.png)
+![cpu_usage](screenshots/cpu_usage.png)
+![used_bytes](screenshots/used_bytes.png)
