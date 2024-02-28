@@ -12,9 +12,9 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: book-service
-          uri: lb://book-service/
+        - id: user-service
+          uri: lb://user-service/
           predicates:
-            - Path=/books/**
+            - Path=/users/**
           filters:
             - StripPrefix=1
