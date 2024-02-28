@@ -1,0 +1,57 @@
+server:
+  port: 8081
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: user-service
+  cloud:
+    discovery:
+      enabled: true
+  datasource:
+    url: jdbc:h2:file:./db
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: pass
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration
+
+management:
+  endpoint:
+    health:
+      group:
+        custom:
+          include: ping,diskSpace
+          show-components: always
+          show-details: always
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+logging:
+  level:
+    org:
+      springframework:
+        web: error
+        data: error
+        security: error
